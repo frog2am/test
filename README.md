@@ -14,7 +14,7 @@
 
 <br />
 
-# Overview
+# 👋 Overview
 
 <b>"Notiffy"</b> is a TypeScript-based notification message UI.
 <br />
@@ -39,7 +39,7 @@ Below are the core features provided by default.
 <br />
 <br />
 
-# Usage Cautions
+# ⚠️ Usage Cautions
 
 Global CSS may affect DIV, SVG and Path tags.
 <br />
@@ -50,7 +50,7 @@ In case of using Node.js, it is advisable to opt for version 18.12.0 or newer. (
 <br />
 <br />
 
-# Installation
+# 📥 Installation
 
 Select one of the following methods to add <b>"Notiffy"</b> to your project.
 <br />
@@ -84,7 +84,7 @@ When grab from CDN. (latest version)
 <br />
 <br />
 
-# Quick Start
+# ⚡ Quick Start
 
 Declare module imports.
 <br />
@@ -110,7 +110,7 @@ Toast.warning({ text: 'hello toast.' });
 <br />
 <br />
 
-# How To Apply
+# 💡How To Apply
 
 - HTML example using CDN.
 
@@ -158,7 +158,7 @@ export const Example = (): JSX.Element => {
 <br />
 <br />
 
-# More Infomation
+# 🔗 More Infomation
 
 - [Click Here](https://devcheeze.github.io/notiffy/) for document and examples.
 - [Click Here](mailto:devcheeze@icloud.com) to send feedback to the creator by email.
