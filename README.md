@@ -28,6 +28,7 @@ Below are the core features provided by default.
 - Varient Events
 - Most browsers Supported
 - Automatically Responsive Size
+- Four Types Available
 - MIT License
 
 <br />
@@ -68,7 +69,11 @@ When grab from CDN. (latest version)
 <br />
 
 ```shell
+// latest version...
 <script src="https://cdn.jsdelivr.net/npm/notiffy/dist/index.js"></script>
+
+// if wanting specific version...
+<script src="https://cdn.jsdelivr.net/npm/notiffy@1.0.0/dist/index.js"></script>
 ```
 
 <br />
