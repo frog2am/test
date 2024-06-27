@@ -1,5 +1,8 @@
 <div align="center">
-<img src="logo_color.png" width="320px" />
+
+<br/>
+
+<img src="logo_color.png" width="520px" />
 
 <br />
 <br />
@@ -107,7 +110,7 @@ Toast.warning({ text: 'hello toast.' });
 
 # How To Apply
 
-- HTML example using CDN
+- HTML example using CDN.
 
 ```html
 <!DOCTYPE html>
