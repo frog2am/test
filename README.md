@@ -29,60 +29,12 @@ Promises regular debugging and continuous updates.
 Below are the core features provided by default.
 <br />
 
-1. <b>Platform Independent</b>
-
-No extra installations for dependencies.
-
-2. <b>Four Types Available</b>
-
-Provides "Slip", "Mole", and "Alert" types for various uses besides the "Toast".
-
-3. <b>Varient Events</b>
-
-Event-based callback triggers can be utilized.
-
-4. <b>Most browsers Supported</b>
-
-Supports major browsers such as Chrome, Edge, Firefox and Safari.
-
-5. <b>Automatically Responsive Size</b>
-
-Delivers reactive type CSS automatically for tablet and mobile devices.
-
-6. <b>MIT License</b>
-
-It is free to use because it follows the MIT license.
-
----
-
-1. <b>Platform Independent</b>
-
-No extra installations for dependencies.
-<br />
-
-2. <b>Four Types Available</b>
-
-Provides "Slip", "Mole", and "Alert" types for various uses besides the "Toast".
-<br />
-
-3. <b>Varient Events</b>
-
-Event-based callback triggers can be utilized.
-<br />
-
-4. <b>Most browsers Supported</b>
-
-Supports major browsers such as Chrome, Edge, Firefox and Safari.
-<br />
-
-5. <b>Automatically Responsive Size</b>
-
-Delivers reactive type CSS automatically for tablet and mobile devices.
-<br />
-
-6. <b>MIT License</b>
-
-It is free to use because it follows the MIT license.
+- <b>Platform Independent</b>
+- <b>Four Types Available</b>
+- <b>Varient Events</b>
+- <b>Most browsers Supported</b>
+- <b>Automatically Responsive Size</b>
+- <b>MIT License</b>
 
 <br />
 <br />
