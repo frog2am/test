@@ -119,6 +119,7 @@ Toast.warning({ text: 'hello toast.' });
 - HTML example using CDN.
 
 ```html
+<!-- example.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -128,12 +129,12 @@ Toast.warning({ text: 'hello toast.' });
     <title>Example</title>
   </head>
   <body>
-    <button id="button">Toast Popup</button>
+    <button id="button">Click here</button>
   </body>
   <script>
     document.getElementById('button').addEventListener('click', function () {
       const { Toast } = notiffy;
-      Toast.warning({ text: 'clicked the button' });
+      Toast.warning({ text: 'hello warning toast.' });
     });
   </script>
 </html>
@@ -143,17 +144,18 @@ Toast.warning({ text: 'hello toast.' });
 
 - Functional React example using an imported module. (for reference)
 
-```typescript
+```javascript
+// example.ts
 import { Toast } from 'notiffy';
 
 export const Example = (): JSX.Element => {
   const onClickButton = (): void => {
-    Toast.waring({ text: 'clicked the button' });
+    Toast.waring({ text: 'hello warning toast.' });
   };
 
   return (
     <div>
-      <button onClick={onClickButton}></button>
+      <button onClick={onClickButton}>Click here</button>
     </div>
   );
 };
