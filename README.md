@@ -16,11 +16,13 @@
 
 # Overview
 
-"Notiffy" is a TypeScript-based notification message UI.
+<b>"Notiffy"</b> is a TypeScript-based notification message UI.
 <br />
 Modern design created using pure CSS makes it accessible for everyone to learn and apply.
 <br />
-Customization is possible through provided properties and supports TypeScript as well as vanilla JavaScript.
+Customization is possible through provided properties and supports vanilla JavaScript as well as TypeScript.
+<br/>
+Supports all frameworks and platforms that use JavaScript, such as React, Vue.js, and JSP...
 <br />
 Promises regular debugging and continuous updates.
 <br />
@@ -50,7 +52,7 @@ In case of using Node.js, it is advisable to opt for version 18.12.0 or newer. (
 
 # Installation
 
-Select one of the following methods to add "Notiffy" to your project.
+Select one of the following methods to add <b>"Notiffy"</b> to your project.
 <br />
 When using NPM.
 <br />
