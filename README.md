@@ -4,8 +4,8 @@
 <br />
 <br />
 
-[![NPM](https://nodei.co/npm/idm-ipex-ui-download.png?downloads=true)](https://www.npmjs.com/package/idm-ipex-ui)  
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevcheeze%2Fnotiffy&count_bg=%231679AB&title_bg=%23555555&icon=github.svg&icon_color=%23FFFFFF&title=Hits&edge_flat=false)](https://github.com/frog2am/test) [![GitHub last commit](https://img.shields.io/github/last-commit/frog2am/test.svg?style=flat)]() [![NPM Downloads](https://img.shields.io/npm/dt/idm-ipex-ui.svg?style=flat)]() [![License](https://img.shields.io/npm/l/idm-ipex-ui.svg?style=flat)]()
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevcheeze%2Fnotiffy&count_bg=%231679AB&title_bg=%23555555&icon=github.svg&icon_color=%23FFFFFF&title=Hits&edge_flat=false)](https://github.com/frog2am/test) [![NPM Downloads](https://img.shields.io/npm/dt/swiper.svg?style=flat&label=NPM Download)]() [![Last Commit](https://img.shields.io/github/last-commit/frog2am/test.svg?style=flat&label=Last Commit)]() [![License](https://img.shields.io/npm/l/idm-ipex-ui.svg?style=flat&label=License)]()
+[![NPM](https://nodei.co/npm/swiper.png?downloads=true)](https://www.npmjs.com/package/notiffy)
 
 </div>
 
