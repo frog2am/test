@@ -68,11 +68,11 @@ $ yarn add notiffy
 When grab from CDN. (latest version)
 <br />
 
-```javascript
-// latest version...
+```html
+<!-- latest version... -->
 <script src="https://cdn.jsdelivr.net/npm/notiffy/dist/index.js"></script>
 
-// if wanting specific version...
+<!-- if wanting specific version... -->
 <script src="https://cdn.jsdelivr.net/npm/notiffy@1.0.0/dist/index.js"></script>
 ```
 
