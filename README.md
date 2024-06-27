@@ -22,7 +22,7 @@ Modern design created using pure CSS makes it accessible for everyone to learn a
 <br />
 Customization is possible through provided properties and supports vanilla JavaScript as well as TypeScript.
 <br/>
-Supports all frameworks and platforms that use JavaScript, such as React, Vue.js, and JSP...
+Supports all frameworks and platforms that use JavaScript, such as React, Vue.js, and JSP.
 <br />
 Promises regular debugging and continuous updates.
 <br />
@@ -54,15 +54,16 @@ In case of using Node.js, it is advisable to opt for version 18.12.0 or newer. (
 
 Select one of the following methods to add "Notiffy" to your project.
 <br />
-When using NPM.
-<br />
+
+- When using NPM.
+  <br />
 
 ```shell
 $ npm install notiffy
 ```
 
 <br />
-When using YARN.
+- When using YARN.
 <br />
 
 ```shell
@@ -70,7 +71,7 @@ $ yarn add notiffy
 ```
 
 <br />
-When grab from CDN. (latest version)
+- When grab from CDN. (latest version)
 <br />
 
 ```html
@@ -86,8 +87,8 @@ When grab from CDN. (latest version)
 
 # ⚡ Quick Start
 
-Declare module imports.
-<br />
+- Declare module imports.
+  <br />
 
 ```javascript
 import { Toast, Slip, Mole, Alert } from 'notiffy';
@@ -100,8 +101,9 @@ const { Toast, Slip, Mole, Alert } = notiffy;
 ```
 
 <br />
-When using "Toast" example.
-<br />
+
+- When using "Toast" example.
+  <br />
 
 ```javascript
 Toast.warning({ text: 'hello toast.' });
