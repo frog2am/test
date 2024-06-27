@@ -1,15 +1,3428 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link type="text/css" rel="stylesheet" href="folder/main.css" />
-    <script type="text/javascript" src="script.js"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1,  shrink-to-fit=no, user-scalable=no"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="index.js"></script>
+    <style>
+      *,
+      :after,
+      :before {
+        box-sizing: border-box;
+        text-decoration: none;
+        list-style: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      :root {
+        --color-primary: #333333;
+        --color-secondary: #ffffff;
+        --color-tertiary: #dcdcdc;
+
+        --color-theme: #1679ab;
+
+        --color-border: #c3c3c3;
+        --color-code: #242424;
+        --color-tabs: #dcdcdc;
+        --color-required: #ff0000;
+        --color-table: rgba(0, 0, 0, 0.12);
+      }
+
+      html {
+        height: 100%;
+        text-rendering: optimizeLegibility;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        width: 100%;
+        height: 100%;
+        display: inline-flex;
+        flex-direction: row;
+        font-family: 'Inter', sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--color-primary);
+        cursor: default;
+      }
+
+      h1 {
+        font-size: 3em;
+      }
+
+      h3 {
+        font-size: 2em;
+      }
+
+      h5 {
+        font-size: 1.2em;
+      }
+
+      p {
+        line-height: 1.6em;
+      }
+
+      a {
+        color: var(--color-theme);
+        text-decoration: none;
+      }
+
+      select {
+        width: 120px;
+        height: 30px;
+        padding: 0 0 0 10px;
+        border-radius: 4px;
+        font-size: 1.2em;
+      }
+
+      aside {
+        width: 220px;
+        height: 100%;
+        background-color: var(--color-theme);
+        position: relative;
+      }
+
+      aside > div {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 0;
+        border-bottom: 1px solid var(--color-secondary);
+        background-color: var(--color-theme);
+      }
+
+      aside > div > img {
+        width: 190px;
+        height: auto;
+        filter: brightness(200);
+      }
+
+      aside > ul {
+        width: 100%;
+        height: calc(100% - 200px);
+        display: inline-flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+
+      aside > ul > li {
+        width: 100%;
+        display: inline-flex;
+        color: var(--color-secondary);
+        font-weight: bold;
+        padding: 16px 30px;
+        transition: all 0.4s;
+        cursor: pointer;
+      }
+
+      aside > ul > li:hover {
+        background-color: #006395;
+      }
+
+      aside > span {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      aside > span > svg {
+        width: 32px;
+        height: 32px;
+        fill: var(--color-secondary);
+        margin: 0 10px;
+        cursor: pointer;
+      }
+
+      main {
+        width: calc(100% - 220px);
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: auto;
+      }
+
+      section {
+        width: 800px;
+        padding: 60px 0 140px 0;
+      }
+
+      section > div {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 0 10px 0;
+        margin: 0 0 20px 0;
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      section > div > span {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      section > div > span > svg {
+        width: 46px;
+        height: 46px;
+        fill: var(--color-primary);
+        margin: 0 10px 0 0;
+      }
+
+      section > ul {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: column;
+      }
+
+      section > ul > li {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: column;
+      }
+
+      section > ul > li:not(:first-child) {
+        display: none;
+      }
+
+      section > ol {
+        display: inline-flex;
+        flex-direction: column;
+      }
+
+      section > ol > li {
+        list-style-type: initial;
+        margin: 0 0 10px 20px;
+      }
+
+      code {
+        width: 100%;
+        display: inline-flex;
+        margin: 10px 0 80px 0;
+        color: var(--color-tertiary);
+        background-color: var(--color-code);
+        position: relative;
+        cursor: text;
+      }
+
+      code.stick {
+        margin: 10px 0;
+      }
+
+      code > div {
+        padding: 20px;
+        font-weight: normal;
+        font-family: 'IBM Plex Mono', monospace;
+        white-space: nowrap;
+        overflow-x: auto;
+        scrollbar-width: thin;
+      }
+
+      code > button {
+        width: 100px;
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 10px;
+        color: var(--color-secondary);
+        font-family: 'Inter', sans-serif;
+        font-weight: bold;
+        border: none;
+        border-radius: 4px;
+        background-color: var(--color-theme);
+        transition: all 0.2s;
+        cursor: pointer;
+      }
+
+      code > button:nth-child(2) {
+        position: absolute;
+        bottom: -40px;
+        right: 0;
+      }
+
+      code > button:nth-child(3) {
+        position: absolute;
+        bottom: -40px;
+        right: 110px;
+      }
+
+      code > button:disabled {
+        opacity: 0.4;
+        cursor: default;
+      }
+
+      code > button > svg {
+        width: 20px;
+        height: 20px;
+        margin: 0 4px 0 0;
+        fill: var(--color-secondary);
+      }
+
+      code > button > p {
+        font-size: 1em;
+        line-height: 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr {
+        width: 100%;
+        height: 40px;
+        background-color: var(--color-table);
+      }
+
+      table > thead > tr > th {
+        padding: 0 10px;
+        text-align: start;
+      }
+
+      table > tbody > tr {
+        height: 50px;
+        border-bottom: 1px solid var(--color-tertiary);
+      }
+
+      table > tbody > tr > td {
+        padding: 10px;
+      }
+
+      table > tbody > tr > td > b {
+        color: var(--color-required);
+        font-weight: bold;
+      }
+
+      table > tbody > tr > td > ul {
+        display: inline-flex;
+        flex-direction: column;
+      }
+
+      mark {
+        font-weight: normal;
+        background: none;
+      }
+
+      mark.tag {
+        color: #e06c75;
+      }
+
+      mark.function {
+        color: #e6c07b;
+      }
+
+      mark.string {
+        color: #98c379;
+      }
+
+      mark.number {
+        color: #8576ff;
+      }
+
+      mark.boolean {
+        color: #56b6c2;
+      }
+
+      mark.property {
+        color: #bd8652;
+      }
+
+      mark.parameter {
+        color: #ee4e4e;
+      }
+
+      mark.keyword {
+        color: #cf82e7;
+      }
+
+      mark.type {
+        color: #75c1ff;
+      }
+
+      mark.null {
+        color: #656565;
+      }
+
+      mark.comment {
+        color: var(--color-tertiary);
+        opacity: 0.4;
+      }
+
+      @media screen and (max-width: 1020px) {
+        body {
+          font-size: 14px;
+        }
+
+        aside {
+          width: 170px;
+        }
+
+        aside > ul > li {
+          padding: 12px 20px;
+        }
+
+        aside > div > img {
+          width: 130px;
+        }
+
+        aside > span > svg {
+          width: 26px;
+          height: 26px;
+          margin: 0 8px;
+        }
+
+        main {
+          width: calc(100% - 170px);
+        }
+
+        section {
+          width: 450px;
+        }
+
+        section > div > span > svg {
+          width: 40px;
+          height: 40px;
+        }
+
+        code {
+          font-size: 14px;
+        }
+      }
+
+      @media screen and (max-width: 680px) {
+        body {
+          font-size: 12px;
+        }
+
+        select {
+          width: 100%;
+        }
+
+        aside {
+          display: none;
+        }
+
+        main {
+          width: 100%;
+        }
+
+        section {
+          width: calc(100% - 20px);
+        }
+
+        section > div {
+          flex-direction: column;
+        }
+
+        section > div > span {
+          margin: 0 0 10px 0;
+        }
+
+        code {
+          font-size: 12px;
+        }
+
+        code > button > svg {
+          width: 16px;
+          height: 16px;
+        }
+
+        code > button > p {
+          font-size: 12px;
+        }
+      }
+    </style>
+    <title>NOTIFFY</title>
   </head>
   <body>
-    <div>hello test</div>
-    <br /><br /><br /><br />
-    <button onclick="onClickTest()">자바스크립트가 된다고?</button>
+    <aside>
+      <div>
+        <img src="logo.png" />
+      </div>
+      <ul>
+        <li onclick="onClickMenu('overview')">Overview</li>
+        <li onclick="onClickMenu('usage-cautions')">Usage Cautions</li>
+        <li onclick="onClickMenu('installation')">Installation</li>
+        <li onclick="onClickMenu('quick-start')">Quick Start</li>
+        <li onclick="onClickMenu('apply')">How To Apply</li>
+        <li onclick="onClickMenu('examples')">Examples</li>
+        <li onclick="onClickMenu('properties')">Properties</li>
+        <li onclick="onClickMenu('event')">Event</li>
+        <li onclick="onClickMenu('customize')">Customize</li>
+        <li onclick="onClickMenu('support')">Support</li>
+      </ul>
+      <span>
+        <svg
+          viewBox="0 -3.5 256 256"
+          xmlns="http://www.w3.org/2000/svg"
+          onclick="window.open('https://github.com/devcheeze/notiffy', '_blank')"
+        >
+          <path
+            d="M127.505 0C57.095 0 0 57.085 0 127.505c0 56.336 36.534 104.13 87.196 120.99 6.372 1.18 8.712-2.766 8.712-6.134 0-3.04-.119-13.085-.173-23.739-35.473 7.713-42.958-15.044-42.958-15.044-5.8-14.738-14.157-18.656-14.157-18.656-11.568-7.914.872-7.752.872-7.752 12.804.9 19.546 13.14 19.546 13.14 11.372 19.493 29.828 13.857 37.104 10.6 1.144-8.242 4.449-13.866 8.095-17.05-28.32-3.225-58.092-14.158-58.092-63.014 0-13.92 4.981-25.295 13.138-34.224-1.324-3.212-5.688-16.18 1.235-33.743 0 0 10.707-3.427 35.073 13.07 10.17-2.826 21.078-4.242 31.914-4.29 10.836.048 21.752 1.464 31.942 4.29 24.337-16.497 35.029-13.07 35.029-13.07 6.94 17.563 2.574 30.531 1.25 33.743 8.175 8.929 13.122 20.303 13.122 34.224 0 48.972-29.828 59.756-58.22 62.912 4.573 3.957 8.648 11.717 8.648 23.612 0 17.06-.148 30.791-.148 34.991 0 3.393 2.295 7.369 8.759 6.117 50.634-16.879 87.122-64.656 87.122-120.973C255.009 57.085 197.922 0 127.505 0"
+          />
+          <path
+            d="M47.755 181.634c-.28.633-1.278.823-2.185.389-.925-.416-1.445-1.28-1.145-1.916.275-.652 1.273-.834 2.196-.396.927.415 1.455 1.287 1.134 1.923M54.027 187.23c-.608.564-1.797.302-2.604-.589-.834-.889-.99-2.077-.373-2.65.627-.563 1.78-.3 2.616.59.834.899.996 2.08.36 2.65M58.33 194.39c-.782.543-2.06.034-2.849-1.1-.781-1.133-.781-2.493.017-3.038.792-.545 2.05-.055 2.85 1.07.78 1.153.78 2.513-.019 3.069M65.606 202.683c-.699.77-2.187.564-3.277-.488-1.114-1.028-1.425-2.487-.724-3.258.707-.772 2.204-.555 3.302.488 1.107 1.026 1.445 2.496.7 3.258M75.01 205.483c-.307.998-1.741 1.452-3.185 1.028-1.442-.437-2.386-1.607-2.095-2.616.3-1.005 1.74-1.478 3.195-1.024 1.44.435 2.386 1.596 2.086 2.612M85.714 206.67c.036 1.052-1.189 1.924-2.705 1.943-1.525.033-2.758-.818-2.774-1.852 0-1.062 1.197-1.926 2.721-1.951 1.516-.03 2.758.815 2.758 1.86M96.228 206.267c.182 1.026-.872 2.08-2.377 2.36-1.48.27-2.85-.363-3.039-1.38-.184-1.052.89-2.105 2.367-2.378 1.508-.262 2.857.355 3.049 1.398"
+          />
+        </svg>
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          onclick="window.open('https://yarnpkg.com/package?name=notiffy', '_blank')"
+        >
+          <path
+            d="m12 24c-.002 0-.005 0-.007 0-6.627 0-12-5.373-12-12 0-4.943 2.989-9.189 7.259-11.027l.078-.03c1.378-.598 2.984-.946 4.67-.946 6.629 0 12.003 5.374 12.003 12.003 0 4.942-2.987 9.187-7.254 11.027l-.078.03c-1.371.596-2.969.943-4.647.943-.008 0-.016 0-.024 0h.001zm-3.28-4.601c.339.308.792.497 1.289.497.056 0 .112-.002.168-.007h-.007.046c1.267-.045 2.463-.158 3.637-.337l-.172.022c.271-.061.508-.181.707-.345l-.003.002c1.149-.367 2.146-.839 3.065-1.423l-.053.032c.514-.389 1.125-.681 1.788-.837l.033-.006c.552-.129.956-.617.956-1.199 0-.057-.004-.113-.011-.168l.001.006c-.089-.628-.623-1.105-1.268-1.105-.023 0-.045.001-.067.002h.003-.021c-.966.077-1.84.415-2.568.941l.015-.01c-.167.107-.364.217-.569.314l-.034.015c.008-.108.013-.234.013-.361 0-.593-.105-1.162-.298-1.689l.011.034c-.252-.711-.634-1.32-1.122-1.826l.002.002c.536-.728.93-1.594 1.123-2.535l.007-.042c.076-.371.12-.798.12-1.235 0-.853-.167-1.668-.469-2.413l.015.043c-.095-.183-.26-.319-.458-.374l-.005-.001c-.065-.02-.14-.032-.217-.032-.001 0-.001 0-.002 0-.118.002-.231.021-.338.054l.009-.002c-.464-.96-.63-1.071-.752-1.152-.147-.098-.328-.158-.522-.16h-.001c-.119 0-.232.022-.337.062l.006-.002c-.48.241-.844.653-1.02 1.153l-.004.014c-.051.108-.091.198-.125.283-.915.06-1.723.473-2.298 1.103l-.002.003c-.136.115-.299.205-.477.258l-.009.002h.005c-.4.142-.592.474-.82 1.079-.073.228-.115.49-.115.763 0 .54.166 1.042.45 1.457l-.006-.009c-.551.473-.996 1.051-1.307 1.706l-.013.031c-.259.618-.41 1.337-.41 2.09 0 .059.001.117.003.175v-.009c-.456.446-.772 1.034-.878 1.692l-.002.017c-.008.087-.013.188-.013.29 0 .613.174 1.185.475 1.671l-.008-.014c.047.073.097.137.153.195-.01.056-.015.121-.015.187 0 .075.007.149.021.221l-.001-.007c.068.333.281.605.568.752l.006.003c.367.198.804.316 1.267.32h.001.031c.299 0 .582-.069.834-.193l-.011.005zm1.466-.209c-.555 0-.934-.146-1.04-.4-.04-.092-.063-.2-.063-.313 0-.339.207-.629.502-.751l.005-.002-.01-.006c-.096-.059-.179-.122-.256-.19l.002.002c-.031-.033-.06-.068-.087-.106l-.002-.003c-.042-.056-.08-.104-.102-.104-.006 0-.012.005-.017.014-.036.097-.071.217-.098.339l-.003.018c-.053.353-.19.667-.389.932l.004-.005c-.186.171-.435.277-.708.277-.02 0-.039-.001-.058-.002h.003c-.347-.007-.671-.095-.957-.246l.012.006c-.11-.051-.19-.149-.216-.268v-.003c.001-.254.097-.485.254-.661l-.001.001c-.047.023-.102.038-.16.038-.149-.007-.276-.091-.343-.214l-.001-.002c-.223-.362-.355-.801-.355-1.271 0-.086.004-.171.013-.255l-.001.011c.14-.599.458-1.108.895-1.484l.004-.003c-.012-.128-.019-.278-.019-.429 0-.66.131-1.29.369-1.864l-.012.032c.4-.757.946-1.386 1.607-1.869l.015-.011c-.102-.117-.976-1.158-.626-2.094.226-.61.328-.64.4-.667l.014-.005c.292-.091.542-.242.747-.441h-.001c.499-.545 1.214-.885 2.008-.885h.008.021c.083 0 .164.006.244.016l-.009-.001c.053-.155.53-1.52 1.01-1.52.056.001.107.018.15.047l-.001-.001c.28.424.544.911.764 1.421l.024.061h.006c.188-.119.406-.211.638-.266l.014-.003c.038 0 .062.01.074.032.202.448.327.969.345 1.518v.007c.012.147.018.318.018.491 0 .4-.036.791-.104 1.171l.006-.04c-.199.928-.583 1.744-1.112 2.443l.011-.015c-.092.134-.172.249-.233.352-.021.034.041.09.152.193.536.478.947 1.086 1.182 1.775l.009.029c.157.44.247.948.247 1.477 0 .313-.032.619-.092.914l.005-.029c-.018.064-.029.137-.029.213 0 .036.002.072.007.107v-.004l.018.033h.022c.653-.077 1.239-.317 1.729-.679l-.01.007c.612-.452 1.363-.75 2.179-.824l.017-.001h.018c.02-.002.043-.004.067-.004.29 0 .531.214.573.493v.003c.003.02.004.043.004.067 0 .255-.177.468-.415.524l-.004.001c-.777.179-1.46.503-2.048.946l.014-.01c-.862.55-1.856 1.012-2.91 1.337l-.087.023c-.127.147-.302.249-.5.282l-.005.001c-.952.144-2.095.25-3.254.294l-.059.002z"
+          />
+        </svg>
+        <svg
+          viewBox="0 0 48 48"
+          xmlns="http://www.w3.org/2000/svg"
+          onclick="window.open('https://www.npmjs.com/package/notiffy', '_blank')"
+        >
+          <rect width="48" height="48" fill="none" />
+          <rect x="21.6" y="19.9" width="2.4" height="4.84" />
+          <path
+            d="M2,15V29.7H14.2v2.5H24V29.7H46V15ZM14.2,27.2H11.8V19.9H9.3v7.3H4.5V17.5h9.7Zm12.3,0H21.6v2.5H16.7V17.5h9.8Zm17.1,0H41.2V19.9H38.7v7.3H36.2V19.9H33.8v7.3H28.9V17.5H43.6Z"
+          />
+        </svg>
+      </span>
+    </aside>
+    <main>
+      <section id="overview">
+        <div>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M360-240h240q17 0 28.5-11.5T640-280q0-17-11.5-28.5T600-320H360q-17 0-28.5 11.5T320-280q0 17 11.5 28.5T360-240Zm0-160h240q17 0 28.5-11.5T640-440q0-17-11.5-28.5T600-480H360q-17 0-28.5 11.5T320-440q0 17 11.5 28.5T360-400ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h287q16 0 30.5 6t25.5 17l194 194q11 11 17 25.5t6 30.5v447q0 33-23.5 56.5T720-80H240Zm280-560v-160H240v640h480v-440H560q-17 0-28.5-11.5T520-640ZM240-800v200-200 640-640Z"
+              />
+            </svg>
+            <h1>Overview</h1>
+          </span>
+        </div>
+        <p>"Notiffy" is a TypeScript-based notification message UI.</p>
+        <p>
+          Modern design created using pure CSS makes it accessible for everyone
+          to learn and apply.
+        </p>
+        <p>
+          Customization is possible through provided properties and supports
+          vanilla JavaScript as well as TypeScript.
+        </p>
+        <p>
+          Supports all frameworks and platforms that use JavaScript, such as
+          React, Vue.js, and JSP.
+        </p>
+        <p>Promises regular debugging and continuous updates.</p>
+        <p>Below are the core features provided by default.</p>
+        <br />
+        <h5>1. Platform Independent</h5>
+        <p>No extra installations for dependencies.</p>
+        <br />
+        <h5>2. Four Types Available</h5>
+        <p>
+          Provides "Slip", "Mole", and "Alert" types for various uses besides
+          the "Toast".
+        </p>
+        <br />
+        <h5>3. Varient Events</h5>
+        <p>Event-based callback triggers can be utilized.</p>
+        <br />
+        <h5>4. Most browsers Supported</h5>
+        <p>Supports major browsers such as Chrome, Edge, Firefox and Safari.</p>
+        <br />
+        <h5>5. Automatically Responsive Size</h5>
+        <p>
+          Delivers reactive type CSS automatically for tablet and mobile
+          devices.
+        </p>
+        <br />
+        <h5>6. MIT License</h5>
+        <p>It is free to use because it follows the MIT license.</p>
+        <br />
+        <br />
+      </section>
+      <section id="usage-cautions">
+        <div>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm0-160q17 0 28.5-11.5T520-480v-160q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640v160q0 17 11.5 28.5T480-440Zm0 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+              />
+            </svg>
+            <h1>Usage Cautions</h1>
+          </span>
+        </div>
+        <p>Global CSS may affect DIV, SVG and Path tags.</p>
+        <p>
+          TypeScript is optional with minimal dependencies required for module
+          building.
+        </p>
+        <p>
+          In case of using Node.js, it is advisable to opt for version 18.12.0
+          or newer. (if possible)
+        </p>
+      </section>
+      <section id="installation">
+        <div>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M480-337q-8 0-15-2.5t-13-8.5L308-492q-12-12-11.5-28t11.5-28q12-12 28.5-12.5T365-549l75 75v-286q0-17 11.5-28.5T480-800q17 0 28.5 11.5T520-760v286l75-75q12-12 28.5-11.5T652-548q11 12 11.5 28T652-492L508-348q-6 6-13 8.5t-15 2.5ZM240-160q-33 0-56.5-23.5T160-240v-80q0-17 11.5-28.5T200-360q17 0 28.5 11.5T240-320v80h480v-80q0-17 11.5-28.5T760-360q17 0 28.5 11.5T800-320v80q0 33-23.5 56.5T720-160H240Z"
+              />
+            </svg>
+            <h1>Installation</h1>
+          </span>
+        </div>
+        <p>
+          Select one of the following methods to add "Notiffy" to your project.
+        </p>
+        <p>When using NPM.</p>
+        <code>
+          <div>npm install notiffy</div>
+          <button
+            type="button"
+            onclick="CodeCopy(this, NotiffyItems.Installation.NPM)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+              />
+            </svg>
+            <p>COPY</p>
+          </button>
+        </code>
+        <p>When using YARN.</p>
+        <code>
+          <div>yarn add notiffy</div>
+          <button
+            type="button"
+            onclick="CodeCopy(this, NotiffyItems.Installation.YARN)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+              />
+            </svg>
+            <p>COPY</p>
+          </button>
+        </code>
+        <p>When grab from CDN.</p>
+        <code>
+          <div>
+            <mark class="comment">&lt;!-- latest version... --&gt;</mark>
+            <br />
+            &lt;<mark class="tag">script</mark>
+            <mark class="property">src</mark>=<mark class="string"
+              >"https://cdn.jsdelivr.net/npm/notiffy/dist/index.js"</mark
+            >&gt;&lt;/<mark class="tag">script</mark>&gt;
+            <br />
+            <br />
+            <mark class="comment"
+              >&lt;!-- if wanting specific version... --&gt;</mark
+            >
+            <br />
+            &lt;<mark class="tag">script</mark>
+            <mark class="property">src</mark>=<mark class="string"
+              >"https://cdn.jsdelivr.net/npm/notiffy@1.0.0/dist/index.js"</mark
+            >&gt;&lt;/<mark class="tag">script</mark>&gt;
+          </div>
+          <button
+            type="button"
+            onclick="CodeCopy(this, NotiffyItems.Installation.CDN)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+              />
+            </svg>
+            <p>COPY</p>
+          </button>
+        </code>
+      </section>
+      <section id="quick-start">
+        <div>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="m440-380-237-30q-25-3-32.5-27t10.5-41l409-392q5-5 12-7.5t19-2.5q20 0 30.5 17t.5 35L520-580l237 30q25 3 32.5 27T779-482L370-90q-5 5-12 7.5T339-80q-20 0-30.5-17t-.5-35l132-248Zm62 53 161-154-269-34 63-117-160 154 268 33-63 118Zm-22-153Z"
+              />
+            </svg>
+            <h1>Quick Start</h1>
+          </span>
+        </div>
+        <p>Declare module imports.</p>
+        <code>
+          <div>
+            <mark class="keyword">import</mark> {
+            <mark class="function">Toast</mark>,
+            <mark class="function">Slip</mark>,
+            <mark class="function">Mole</mark>,
+            <mark class="function">Alert</mark> }
+            <mark class="keyword">from</mark>
+            <mark class="string">"notiffy"</mark>;
+            <br />
+            <br />
+            <mark class="comment">// if using CommonJS...</mark>
+            <br />
+            <mark class="keyword">const</mark> {
+            <mark class="function">Toast</mark>,
+            <mark class="function">Slip</mark>,
+            <mark class="function">Mole</mark>,
+            <mark class="function">Alert</mark> } =
+            <mark class="function">require</mark>(<mark class="string"
+              >"notiffy"</mark
+            >);
+            <br />
+            <br />
+            <mark class="comment">// if grab the CDN...</mark>
+            <br />
+            <mark class="keyword">const</mark> {
+            <mark class="function">Toast</mark>,
+            <mark class="function">Slip</mark>,
+            <mark class="function">Mole</mark>,
+            <mark class="function">Alert</mark> } =
+            <mark class="function">notiffy</mark>;
+          </div>
+          <button
+            type="button"
+            onclick="CodeCopy(this, NotiffyItems.QuickUsage.Import)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+              />
+            </svg>
+            <p>COPY</p>
+          </button>
+        </code>
+        <p>When using "Toast" example.</p>
+        <code>
+          <div>
+            <mark class="function">Toast</mark>.<mark class="type">warning</mark
+            >({
+            <br />
+            &nbsp;&nbsp;<mark class="property">text</mark>:
+            <mark class="string">"hello toast."</mark> <br />});
+          </div>
+          <button
+            type="button"
+            onclick="CodeCopy(this, NotiffyItems.QuickUsage.Usage)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+              />
+            </svg>
+            <p>COPY</p>
+          </button>
+          <button
+            type="button"
+            onclick="CodeExecute(this, 'Toast', NotiffyItems.QuickUsage.Usage)"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+              />
+            </svg>
+            EXEC
+          </button>
+        </code>
+      </section>
+      <section id="apply">
+        <div>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M470-200h-10q-142 0-241-99t-99-241q0-142 99-241t241-99q71 0 132.5 26.5t108 73q46.5 46.5 73 108T800-540q0 134-75.5 249T534-111q-10 5-20 5.5t-18-4.5q-8-5-14-13t-7-19l-5-58Zm90-26q71-60 115.5-140.5T720-540q0-109-75.5-184.5T460-800q-109 0-184.5 75.5T200-540q0 109 75.5 184.5T460-280h100v54Zm-101-95q17 0 29-12t12-29q0-17-12-29t-29-12q-17 0-29 12t-12 29q0 17 12 29t29 12Zm-87-304q11 5 22 .5t18-14.5q9-12 21-18.5t27-6.5q24 0 39 13.5t15 34.5q0 13-7.5 26T480-558q-25 22-37 41.5T431-477q0 12 8.5 20.5T460-448q12 0 20-9t12-21q5-17 18-31t24-25q21-21 31.5-42t10.5-42q0-46-31.5-74T460-720q-32 0-59 15.5T357-662q-6 11-1.5 21.5T372-625Zm88 112Z"
+              />
+            </svg>
+            <h1>How To Apply</h1>
+          </span>
+        </div>
+        <p>HTML example using CDN.</p>
+        <code>
+          <div>
+            &lt;!DOCTYPE html&gt;
+            <br />
+            &lt;<mark class="tag">html</mark>
+            <mark class="property">lang</mark>=<mark class="string">"en"</mark
+            >&gt;
+            <br />
+            &nbsp;&nbsp;&lt;<mark class="tag">head</mark>&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;<mark class="tag">meta</mark>
+            <mark class="property">charset</mark>=<mark class="string"
+              >"UTF-8"</mark
+            >/&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;<mark class="tag">meta</mark>
+            <mark class="property">name</mark>=<mark class="string"
+              >"viewport"</mark
+            >
+            <mark class="property">content</mark>=<mark class="string"
+              >"width=device-width, initial-scale=1.0"</mark
+            >
+            /&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<mark class="comment">
+              &lt;!-- grab the CDN --&gt;</mark
+            >
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;<mark class="tag">script</mark>
+            <mark class="property">src</mark>=<mark class="string"
+              >"https://cdn.jsdelivr.net/npm/notiffy/dist/index.js"</mark
+            >&gt;&lt;/<mark class="tag">script</mark>&gt;
+            <br />
+            &nbsp;&nbsp;&lt;/<mark class="tag">head</mark>&gt;
+            <br />
+            &nbsp;&nbsp;&lt;<mark class="tag">body</mark>&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;<mark class="tag">button</mark>
+            <mark class="property">id</mark>=<mark class="string">"button"</mark
+            >&gt;Click here&lt;/<mark class="tag">button</mark>&gt;
+            <br />
+            &nbsp;&nbsp;&lt;/<mark class="tag">body</mark>&gt;
+            <br />
+            &nbsp;&nbsp;&lt;<mark class="tag">script</mark>&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById(<mark class="string"
+              >"button"</mark
+            >).addEventListener(<mark class="string">"click"</mark>,
+            <mark class="keyword">function</mark>
+            () {
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark class="keyword"
+              >const</mark
+            >
+            { <mark class="function">Toast</mark> } =
+            <mark class="function">notiffy</mark>;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark class="function"
+              >Toast</mark
+            >.<mark class="type">warning</mark>({
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark
+              class="property"
+              >text</mark
+            >: <mark class="string">"hello warning toast."</mark>
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;});
+            <br />
+            &nbsp;&nbsp;&lt;/<mark class="tag">script</mark>&gt;
+            <br />
+            &lt;/<mark class="tag">html</mark>&gt;
+          </div>
+        </code>
+        <p>
+          Functional React example using an imported module. (for reference)
+        </p>
+        <code>
+          <div>
+            <mark class="keyword">import</mark> {
+            <mark class="function">Toast</mark> }
+            <mark class="keyword">from</mark>
+            <mark class="string">"notiffy"</mark>;
+            <br />
+            <br />
+            <mark class="keyword">const</mark>
+            <mark class="function">Example</mark> = (): JSX.Element => {
+            <br />
+            <br />
+            &nbsp;&nbsp;<mark class="keyword">const</mark>
+            <mark class="function">onClickButton</mark> = (): void => {
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;<mark class="function">Toast</mark>.<mark
+              class="type"
+              >warning</mark
+            >({
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<mark class="property"
+              >text</mark
+            >:
+            <mark class="string">"hello warning toast."</mark>
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;});
+            <br />
+            &nbsp;&nbsp;};
+            <br />
+            <br />
+            &nbsp;&nbsp;<mark class="keyword">return</mark> (
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;<mark class="tag">div</mark>&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;<mark class="tag"
+              >button</mark
+            >
+            <mark class="property">onClick</mark>={
+            <mark class="function">onClickButton</mark> }&gt;Click
+            here&lt;/<mark class="tag">button</mark>&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;/<mark class="tag">div</mark>&gt;
+            <br />
+            &nbsp;&nbsp;);
+            <br />
+            };
+          </div>
+        </code>
+      </section>
+      <section id="examples">
+        <div>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="m297-581 149-243q6-10 15-14.5t19-4.5q10 0 19 4.5t15 14.5l149 243q6 10 6 21t-5 20q-5 9-14 14.5t-21 5.5H331q-12 0-21-5.5T296-540q-5-9-5-20t6-21ZM700-80q-75 0-127.5-52.5T520-260q0-75 52.5-127.5T700-440q75 0 127.5 52.5T880-260q0 75-52.5 127.5T700-80Zm-580-60v-240q0-17 11.5-28.5T160-420h240q17 0 28.5 11.5T440-380v240q0 17-11.5 28.5T400-100H160q-17 0-28.5-11.5T120-140Zm580-20q42 0 71-29t29-71q0-42-29-71t-71-29q-42 0-71 29t-29 71q0 42 29 71t71 29Zm-500-20h160v-160H200v160Zm202-420h156l-78-126-78 126Zm78 0ZM360-340Zm340 80Z"
+              />
+            </svg>
+            <h1>Examples</h1>
+          </span>
+          <select onchange="SelectSort(this, this.value)">
+            <option value="0">Toast</option>
+            <option value="1">Slip</option>
+            <option value="2">Mole</option>
+            <option value="3">Alert</option>
+          </select>
+        </div>
+        <ul>
+          <li>
+            <p>"Toast" appears at the center top of the screen.</p>
+            <p>There are a total of four types available.</p>
+            <code>
+              <div>
+                <mark class="function">Toast</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello warning toast."</mark>
+                <br />});
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Toast.Default.Warning)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Toast', NotiffyItems.Examples.Toast.Default.Warning)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <code>
+              <div>
+                <mark class="function">Toast</mark>.<mark class="type"
+                  >error</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello error toast."</mark>
+                <br />});
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Toast.Default.Error)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Toast', NotiffyItems.Examples.Toast.Default.Error)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <code>
+              <div>
+                <mark class="function">Toast</mark>.<mark class="type"
+                  >success</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello success toast."</mark>
+                <br />});
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Toast.Default.Success)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Toast', NotiffyItems.Examples.Toast.Default.Success)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <code>
+              <div>
+                <mark class="function">Toast</mark>.<mark class="type"
+                  >info</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello info toast."</mark> <br />});
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Toast.Default.Info)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Toast', NotiffyItems.Examples.Toast.Default.Info)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>
+              Below is an example of a "Toast" lasting for 20 seconds. (unit is
+              milliseconds)
+            </p>
+            <p>
+              When "none" is set for the timeout property, there's no time
+              limit.
+            </p>
+            <code>
+              <div>
+                <mark class="function">Toast</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello toast."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">timeout</mark>:
+                <mark class="number">20000</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Toast.Timeout)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Toast', NotiffyItems.Examples.Toast.Timeout)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>Below is an example of a "Toast" without the SVG icon.</p>
+            <code>
+              <div>
+                <mark class="function">Toast</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello toast."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">icon</mark>:
+                <mark class="boolean">false</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Toast.Icon)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Toast', NotiffyItems.Examples.Toast.Icon)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>
+              Below is an example of "Toast" without a filled background color.
+            </p>
+            <code>
+              <div>
+                <mark class="function">Toast</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello notiffy."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">fill</mark>:
+                <mark class="boolean">false</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Toast.Fill)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Toast', NotiffyItems.Examples.Toast.Fill)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+          </li>
+          <li>
+            <p>
+              "Slip" appears in the bottom right corner of the screen. (if text
+              exceeds the width, it's partially omitted)
+            </p>
+            <p>There are a total of four types available.</p>
+            <code>
+              <div>
+                <mark class="function">Slip</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello warning slip."</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Slip.Default.Warning)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Slip', NotiffyItems.Examples.Slip.Default.Warning)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <code>
+              <div>
+                <mark class="function">Slip</mark>.<mark class="type"
+                  >error</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello error slip."</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Slip.Default.Error)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Slip', NotiffyItems.Examples.Slip.Default.Error)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <code>
+              <div>
+                <mark class="function">Slip</mark>.<mark class="type"
+                  >success</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello success slip."</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Slip.Default.Success)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Slip', NotiffyItems.Examples.Slip.Default.Success)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <code>
+              <div>
+                <mark class="function">Slip</mark>.<mark class="type">info</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello info slip."</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Slip.Default.Info)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Slip', NotiffyItems.Examples.Slip.Default.Info)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>
+              Below is an example of a "Slip" lasting for 20 seconds. (unit is
+              milliseconds)
+            </p>
+            <p>
+              When "none" is set for the timeout property, there's no time
+              limit.
+            </p>
+            <code>
+              <div>
+                <mark class="function">Slip</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello slip."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">timeout</mark>:
+                <mark class="number">20000</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Slip.Timeout)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Slip', NotiffyItems.Examples.Slip.Timeout)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>Below is an example of a "Slip" without the SVG icon.</p>
+            <code>
+              <div>
+                <mark class="function">Slip</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello slip."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">icon</mark>:
+                <mark class="boolean">false</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Slip.Icon)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Slip', NotiffyItems.Examples.Slip.Icon)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>
+              Below is an example of "Slip" without a filled background color.
+            </p>
+            <code>
+              <div>
+                <mark class="function">Slip</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello slip."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">fill</mark>:
+                <mark class="boolean">false</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Slip.Fill)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Slip', NotiffyItems.Examples.Slip.Fill)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>Below is an example of "Slip" that appears on the left.</p>
+            <code>
+              <div>
+                <mark class="function">Slip</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello slip."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">direction</mark>:
+                <mark class="string">"left"</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Slip.Direction)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Slip', NotiffyItems.Examples.Slip.Direction)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+          </li>
+          <li>
+            <p>
+              "Mole" appears at the bottom of the screen. (if text exceeds the
+              width, it's partially omitted)
+            </p>
+            <p>There are a total of four types available.</p>
+            <code>
+              <div>
+                <mark class="function">Mole</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello warning mole."</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Mole.Default.Warning)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Mole', NotiffyItems.Examples.Mole.Default.Warning)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <code>
+              <div>
+                <mark class="function">Mole</mark>.<mark class="type"
+                  >error</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello error mole."</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Mole.Default.Error)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Mole', NotiffyItems.Examples.Mole.Default.Error)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <code>
+              <div>
+                <mark class="function">Mole</mark>.<mark class="type"
+                  >success</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello success mole."</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Mole.Default.Success)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Mole', NotiffyItems.Examples.Mole.Default.Success)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <code>
+              <div>
+                <mark class="function">Mole</mark>.<mark class="type">info</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello info mole."</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Mole.Default.Info)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Mole', NotiffyItems.Examples.Mole.Default.Info)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>
+              Below is an example of a "Mole" lasting for 20 seconds. (unit is
+              milliseconds)
+            </p>
+            <p>
+              When "none" is set for the timeout property, there's no time
+              limit.
+            </p>
+            <code>
+              <div>
+                <mark class="function">Mole</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello mole."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">timeout</mark>:
+                <mark class="number">20000</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Mole.Timeout)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Mole', NotiffyItems.Examples.Mole.Timeout)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>Below is an example of a "Mole" without the SVG icon.</p>
+            <code>
+              <div>
+                <mark class="function">Mole</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello mole."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">icon</mark>:
+                <mark class="boolean">false</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Mole.Icon)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Mole', NotiffyItems.Examples.Mole.Icon)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>
+              Below is an example of "Mole" without a filled background color.
+            </p>
+            <code>
+              <div>
+                <mark class="function">Mole</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello mole."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">fill</mark>:
+                <mark class="boolean">false</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Mole.Fill)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Mole', NotiffyItems.Examples.Mole.Fill)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>Below is an example of "Mole" that appears on the left.</p>
+            <code>
+              <div>
+                <mark class="function">Mole</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello mole."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">direction</mark>:
+                <mark class="string">"left"</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Mole.Direction)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Mole', NotiffyItems.Examples.Mole.Direction)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+          </li>
+          <li>
+            <p>
+              "Alert" appears on the center of the screen on a background layer.
+            </p>
+            <p>There are a total of four types available.</p>
+            <code>
+              <div>
+                <mark class="function">Alert</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:<mark
+                  class="string"
+                  >"hello warning alert."</mark
+                >
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Alert.Default.Warning)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Alert', NotiffyItems.Examples.Alert.Default.Warning)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <code>
+              <div>
+                <mark class="function">Alert</mark>.<mark class="type"
+                  >error</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello error alert."</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Alert.Default.Error)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Alert', NotiffyItems.Examples.Alert.Default.Error)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <code>
+              <div>
+                <mark class="function">Alert</mark>.<mark class="type"
+                  >success</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello success alert."</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Alert.Default.Success)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Alert', NotiffyItems.Examples.Alert.Default.Success)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <code>
+              <div>
+                <mark class="function">Alert</mark>.<mark class="type"
+                  >info</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello info alert."</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Alert.Default.Info)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Alert', NotiffyItems.Examples.Alert.Default.Info)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>Below is an example of "Alert" that displayed a title.</p>
+            <code>
+              <div>
+                <mark class="function">Alert</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello alert."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">title</mark>:
+                <mark class="string">"this is title."</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Alert.Title)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Alert', NotiffyItems.Examples.Alert.Title)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>
+              Below is an example of a "Alert" lasting for 20 seconds. (unit is
+              milliseconds)
+            </p>
+            <p>
+              By default, there is no time limit, but the timeout property
+              allows setting the time limit.
+            </p>
+            <code>
+              <div>
+                <mark class="function">Alert</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello alert."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">timeout</mark>:
+                <mark class="number">20000</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Alert.Timeout)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Alert', NotiffyItems.Examples.Alert.Timeout)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>Below is an example of a "Alert" without the SVG icon.</p>
+            <code>
+              <div>
+                <mark class="function">Alert</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello alert."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">icon</mark>:
+                <mark class="boolean">false</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Alert.Icon)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Alert', NotiffyItems.Examples.Alert.Icon)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>
+              Below is an example of "Alert" without a filled background color.
+            </p>
+            <code>
+              <div>
+                <mark class="function">Alert</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello alert."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">fill</mark>:
+                <mark class="boolean">false</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Alert.Fill)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Alert', NotiffyItems.Examples.Alert.Fill)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+            <p>Below is an example of "Alert" with a dark layer color.</p>
+            <code>
+              <div>
+                <mark class="function">Alert</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello alert."</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">overlay</mark>:
+                <mark class="string">"RGBA(0, 0, 0, 0.8)"</mark>
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Examples.Alert.Overlay)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Alert', NotiffyItems.Examples.Alert.Overlay)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+          </li>
+        </ul>
+      </section>
+      <section id="properties">
+        <div>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M222-540q-12-5-22.5-10.5T178-564l-29 9q-13 4-25.5-1T104-572l-8-14q-7-12-5-26t13-23l22-19q-2-13-2-26t2-26l-22-19q-11-9-13-22.5t5-25.5l9-15q7-11 19-16t25-1l29 9q11-8 21.5-13.5T222-820l6-29q3-14 13.5-22.5T266-880h16q14 0 24.5 9t13.5 23l6 28q12 5 22.5 10.5T370-796l29-9q13-4 25.5 1t19.5 16l8 14q7 12 5 26t-13 23l-22 19q2 13 2 26t-2 26l22 19q11 9 13 22.5t-5 25.5l-9 15q-7 11-19 16t-25 1l-29-9q-11 8-21.5 13.5T326-540l-6 29q-3 14-13.5 22.5T282-480h-16q-14 0-24.5-9T228-512l-6-28Zm52-60q33 0 56.5-23.5T354-680q0-33-23.5-56.5T274-760q-33 0-56.5 23.5T194-680q0 33 23.5 56.5T274-600Zm300 476q-17-6-31.5-14.5T514-158l-38 12q-18 6-36-.5T412-170l-11-19q-10-17-7-36.5t18-32.5l30-26q-2-18-2-36t2-36l-30-27q-15-13-18-32t7-36l11-19q10-17 28-23.5t36-.5l38 12q14-11 28.5-19.5T574-516l9-41q4-19 18.5-31t34.5-12h24q20 0 34.5 12t18.5 31l9 41q17 6 31.5 14.5T782-482l38-12q18-6 36 .5t28 23.5l11 19q10 17 7 36.5T884-382l-30 26q2 18 2 36t-2 36l30 27q15 13 18 32t-7 36l-11 19q-10 17-28 23.5t-36 .5l-38-12q-14 11-28.5 19.5T722-124l-9 41q-4 19-18.5 31T660-40h-24q-20 0-34.5-12T583-83l-9-41Zm74-76q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Z"
+              />
+            </svg>
+            <h1>Properties</h1>
+          </span>
+          <select onchange="SelectSort(this, this.value)">
+            <option value="0">Toast</option>
+            <option value="1">Slip</option>
+            <option value="2">Mole</option>
+            <option value="3">Alert</option>
+          </select>
+        </div>
+        <ul>
+          <li>
+            <p>
+              The properties that can be declared are as follows. (below are the
+              default values)
+            </p>
+            <code class="stick">
+              <div>
+                <mark class="function">Toast</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">id</mark>:
+                <mark class="null">null</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="null">null</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">timeout</mark>:
+                <mark class="number">8000</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">icon</mark>:
+                <mark class="boolean">true</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">fill</mark>:
+                <mark class="boolean">true</mark>
+                <br />
+                });
+              </div>
+            </code>
+            <table>
+              <thead>
+                <tr>
+                  <th width="20%">Name</th>
+                  <th width="40%">Type</th>
+                  <th width="40%">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>String | Number</td>
+                  <td>classification id.</td>
+                </tr>
+                <tr>
+                  <td>text<b>*</b></td>
+                  <td>String</td>
+                  <td>text displayed.</td>
+                </tr>
+                <tr>
+                  <td>timeout</td>
+                  <td>Number | "none"</td>
+                  <td>duration time. (m/s)</td>
+                </tr>
+                <tr>
+                  <td>icon</td>
+                  <td>Boolean</td>
+                  <td>SVG Icon displayed.</td>
+                </tr>
+                <tr>
+                  <td>fill</td>
+                  <td>Boolean</td>
+                  <td>background color filled.</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>
+            <p>
+              The properties that can be declared are as follows. (below are the
+              default values)
+            </p>
+            <code class="stick">
+              <div>
+                <mark class="function">Slip</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">id</mark>:
+                <mark class="null">null</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="null">null</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">timeout</mark>:
+                <mark class="number">8000</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">icon</mark>:
+                <mark class="boolean">true</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">fill</mark>:
+                <mark class="boolean">true</mark>
+                <br />
+                &nbsp;&nbsp;<mark class="property">direction</mark>:
+                <mark class="string">"right"</mark>
+                <br />
+                });
+              </div>
+            </code>
+            <table>
+              <thead>
+                <tr>
+                  <th width="20%">Name</th>
+                  <th width="40%">Type</th>
+                  <th width="40%">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>String | Number</td>
+                  <td>classification id.</td>
+                </tr>
+                <tr>
+                  <td>text<b>*</b></td>
+                  <td>String</td>
+                  <td>text displayed.</td>
+                </tr>
+                <tr>
+                  <td>timeout</td>
+                  <td>Number | "none"</td>
+                  <td>duration time. (m/s)</td>
+                </tr>
+                <tr>
+                  <td>icon</td>
+                  <td>Boolean</td>
+                  <td>SVG icon displayed.</td>
+                </tr>
+                <tr>
+                  <td>fill</td>
+                  <td>Boolean</td>
+                  <td>background color filled.</td>
+                </tr>
+                <tr>
+                  <td>direction</td>
+                  <td>"right" | "left"</td>
+                  <td>direction of appear.</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>
+            <p>
+              The properties that can be declared are as follows. (below are the
+              default values)
+            </p>
+            <code class="stick">
+              <div>
+                <mark class="function">Mole</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">id</mark>:
+                <mark class="null">null</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="null">null</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">timeout</mark>:
+                <mark class="number">8000</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">icon</mark>:
+                <mark class="boolean">true</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">fill</mark>:
+                <mark class="boolean">true</mark>
+                <br />
+                &nbsp;&nbsp;<mark class="property">direction</mark>:
+                <mark class="string">"center"</mark>
+                <br />
+                });
+              </div>
+            </code>
+            <table>
+              <thead>
+                <tr>
+                  <th width="20%">Name</th>
+                  <th width="40%">Type</th>
+                  <th width="40%">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>String | Number</td>
+                  <td>classification id.</td>
+                </tr>
+                <tr>
+                  <td>text<b>*</b></td>
+                  <td>String</td>
+                  <td>text displayed.</td>
+                </tr>
+                <tr>
+                  <td>timeout</td>
+                  <td>Number | "none"</td>
+                  <td>duration time. (m/s)</td>
+                </tr>
+                <tr>
+                  <td>icon</td>
+                  <td>Boolean</td>
+                  <td>SVG icon displayed.</td>
+                </tr>
+                <tr>
+                  <td>fill</td>
+                  <td>Boolean</td>
+                  <td>background color filled.</td>
+                </tr>
+                <tr>
+                  <td>direction</td>
+                  <td>"right" | "center" | "left"</td>
+                  <td>direction of appear.</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>
+            <p>
+              The properties that can be declared are as follows. (below are the
+              default values)
+            </p>
+            <code class="stick">
+              <div>
+                <mark class="function">Alert</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">id</mark>:
+                <mark class="null">null</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="null">null</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">title</mark>:
+                <mark class="null">null</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">timeout</mark>:
+                <mark class="string">"none"</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">icon</mark>:
+                <mark class="boolean">true</mark>,
+                <br />
+                &nbsp;&nbsp;<mark class="property">fill</mark>:
+                <mark class="boolean">true</mark>
+                <br />
+                &nbsp;&nbsp;<mark class="property">overlay</mark>:
+                <mark class="string">"RGBA(0, 0, 0, 0.4)"</mark>
+                <br />
+                });
+              </div>
+            </code>
+            <table>
+              <thead>
+                <tr>
+                  <th width="20%">Name</th>
+                  <th width="40%">Type</th>
+                  <th width="40%">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>String | Number</td>
+                  <td>classification id.</td>
+                </tr>
+                <tr>
+                  <td>text<b>*</b></td>
+                  <td>String</td>
+                  <td>text displayed below.</td>
+                </tr>
+                <tr>
+                  <td>title</td>
+                  <td>String</td>
+                  <td>text displayed above.</td>
+                </tr>
+                <tr>
+                  <td>timeout</td>
+                  <td>Number | "none"</td>
+                  <td>duration time. (m/s)</td>
+                </tr>
+                <tr>
+                  <td>icon</td>
+                  <td>Boolean</td>
+                  <td>SVG icon displayed.</td>
+                </tr>
+                <tr>
+                  <td>fill</td>
+                  <td>Boolean</td>
+                  <td>background color filled.</td>
+                </tr>
+                <tr>
+                  <td>overlay</td>
+                  <td>String</td>
+                  <td>layer color.</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </section>
+      <section id="event">
+        <div>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M480-640q-66 0-113 47t-47 113q0 45 22.5 83t62.5 59q16 8 22.5 23.5T427-283q-7 14-21 21t-28 0q-63-30-100.5-89T240-480q0-100 70-170t170-70q71 0 130.5 37.5T699-580q6 14-.5 28T678-532q-16 7-32 0t-24-23q-21-40-59-62.5T480-640Zm0-160q-134 0-227 93t-93 227q0 126 83 216t208 102q17 2 29.5 15t11.5 30q-1 17-12.5 28T451-79q-78-5-145.5-39t-118-88.5q-50.5-54.5-79-125T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q157 0 273.5 107T881-509q2 16-9.5 27.5T843-469q-17 1-30.5-11T797-509q-15-120-104.5-205.5T480-800Zm302 700L650-231l-30 91q-5 14-19 13.5T582-141l-91-303q-4-11 5-20t20-5l303 91q14 5 14.5 19T820-340l-91 30 132 132q17 17 17 39t-17 39q-17 17-39.5 17T782-100Z"
+              />
+            </svg>
+            <h1>Event</h1>
+          </span>
+          <select onchange="SelectSort(this, this.value)">
+            <option value="0">Toast</option>
+            <option value="1">Slip</option>
+            <option value="2">Mole</option>
+            <option value="3">Alert</option>
+          </select>
+        </div>
+        <ul>
+          <li>
+            <p>
+              When clicking the message, an asynchronous callback event is
+              triggered.
+            </p>
+            <p>ID added is returned in the callback.</p>
+            <p>Check with the browser's developer tools.</p>
+            <code>
+              <div>
+                <mark class="function">Toast</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">id</mark>:
+                <mark class="number">1</mark>
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello toast."</mark>
+                <br />
+                }).<mark class="function">then</mark>((<mark class="parameter"
+                  >response</mark
+                >) => {
+                <br />
+                &nbsp;&nbsp;<mark class="function">console.log</mark>(<mark
+                  class="string"
+                  >"when clicked"</mark
+                >, <mark class="parameter">response</mark>);
+                <br />
+                }).<mark class="function">catch</mark>((<mark class="parameter"
+                  >error</mark
+                >) => {
+                <br />
+                &nbsp;&nbsp;<mark class="function">console.log</mark>(<mark
+                  class="parameter"
+                  >error</mark
+                >);
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Event.Toast.Callback)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Toast', NotiffyItems.Event.Toast.Callback)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+          </li>
+          <li>
+            <p>
+              When clicking the message, an asynchronous callback event is
+              triggered.
+            </p>
+            <p>ID added is returned in the callback.</p>
+            <p>Check with browser's developer tools.</p>
+            <code>
+              <div>
+                <mark class="function">Slip</mark>.<mark class="type"
+                  >warning</mark
+                >({
+
+                <br />
+                &nbsp;&nbsp;<mark class="property">id</mark>:
+                <mark class="number">1</mark>
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello slip."</mark>
+                <br />
+                }).<mark class="function">then</mark>((<mark class="parameter"
+                  >response</mark
+                >) => {
+                <br />
+                &nbsp;&nbsp;<mark class="function">console.log</mark>(<mark
+                  class="string"
+                  >"when clicked"</mark
+                >, <mark class="parameter">response</mark>);
+                <br />
+                }).<mark class="function">catch</mark>((<mark class="parameter"
+                  >error</mark
+                >) => {
+                <br />
+                &nbsp;&nbsp;<mark class="function">console.log</mark>(<mark
+                  class="parameter"
+                  >error</mark
+                >);
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Event.Slip.Callback)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Slip', NotiffyItems.Event.Slip.Callback)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+          </li>
+          <li>
+            <p>
+              When clicking the message, an asynchronous callback event is
+              triggered.
+            </p>
+            <p>ID added is returned in the callback.</p>
+            <p>Check with browser's developer tools.</p>
+            <code>
+              <div>
+                <mark class="function">Mole</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">id</mark>:
+                <mark class="number">1</mark>
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello mole."</mark>
+                <br />
+                }).<mark class="function">then</mark>((<mark class="parameter"
+                  >response</mark
+                >) => {
+                <br />
+                &nbsp;&nbsp;<mark class="function">console.log</mark>(<mark
+                  class="string"
+                  >"when clicked"</mark
+                >, <mark class="parameter">response</mark>);
+                <br />
+                }).<mark class="function">catch</mark>((<mark class="parameter"
+                  >error</mark
+                >) => {
+                <br />
+                &nbsp;&nbsp;<mark class="function">console.log</mark>(<mark
+                  class="parameter"
+                  >error</mark
+                >);
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Event.Mole.Callback)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Mole', NotiffyItems.Event.Mole.Callback)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+          </li>
+          <li>
+            <p>
+              When clicking the message, an asynchronous callback event is
+              triggered.
+            </p>
+            <p>ID added is returned in the callback.</p>
+            <p>Check with browser's developer tools.</p>
+            <code>
+              <div>
+                <mark class="function">Alert</mark>.<mark class="type"
+                  >warning</mark
+                >({
+                <br />
+                &nbsp;&nbsp;<mark class="property">id</mark>:
+                <mark class="number">1</mark>
+                <br />
+                &nbsp;&nbsp;<mark class="property">text</mark>:
+                <mark class="string">"hello alert."</mark>
+                <br />
+                }).<mark class="function">then</mark>((<mark class="parameter"
+                  >response</mark
+                >) => {
+                <br />
+                &nbsp;&nbsp;<mark class="function">console.log</mark>(<mark
+                  class="string"
+                  >"when clicked"</mark
+                >, <mark class="parameter">response</mark>);
+                <br />
+                }).<mark class="function">catch</mark>((<mark class="parameter"
+                  >error</mark
+                >) => {
+                <br />
+                &nbsp;&nbsp;<mark class="function">console.log</mark>(<mark
+                  class="parameter"
+                  >error</mark
+                >);
+                <br />
+                });
+              </div>
+              <button
+                type="button"
+                onclick="CodeCopy(this, NotiffyItems.Event.Alert.Callback)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-520q0-17 11.5-28.5T160-720q17 0 28.5 11.5T200-680v520h400q17 0 28.5 11.5T640-120q0 17-11.5 28.5T600-80H200Zm160-240v-480 480Z"
+                  />
+                </svg>
+                <p>COPY</p>
+              </button>
+              <button
+                type="button"
+                onclick="CodeExecute(this, 'Alert', NotiffyItems.Event.Alert.Callback)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                >
+                  <path
+                    d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+                  />
+                </svg>
+                EXEC
+              </button>
+            </code>
+          </li>
+        </ul>
+      </section>
+      <section id="customize">
+        <div>
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+              <path
+                d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 32.5-156t88-127Q256-817 330-848.5T488-880q80 0 151 27.5t124.5 76q53.5 48.5 85 115T880-518q0 115-70 176.5T640-280h-74q-9 0-12.5 5t-3.5 11q0 12 15 34.5t15 51.5q0 50-27.5 74T480-80Zm0-400Zm-220 40q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120-160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm200 0q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17Zm120 160q26 0 43-17t17-43q0-26-17-43t-43-17q-26 0-43 17t-17 43q0 26 17 43t43 17ZM480-160q9 0 14.5-5t5.5-13q0-14-15-33t-15-57q0-42 29-67t71-25h70q66 0 113-38.5T800-518q0-121-92.5-201.5T488-800q-136 0-232 93t-96 227q0 133 93.5 226.5T480-160Z"
+              />
+            </svg>
+            <h1>Customize</h1>
+          </span>
+        </div>
+        <p>Customize default colors by adding a style sheet file.</p>
+        <p>
+          Create a style sheet for reference in the project and add it to the
+          header.
+        </p>
+        <p>Change the global CSS variable value to the color you want.</p>
+        <p>
+          Recommend Hex-Code or RGBA for values. (below are the default values)
+        </p>
+        <code class="stick">
+          <div>
+            <mark class="function">:root</mark> {
+            <br />
+            &nbsp;&nbsp;<mark class="property">--notiffy-primary</mark>:
+            <mark style="background-color: #ffffff; color: var(--color-primary)"
+              >#ffffff</mark
+            >;
+            <br />
+            &nbsp;&nbsp;<mark class="property">--notiffy-secondary</mark>:
+            <mark style="background-color: #f1f2f3; color: var(--color-primary)"
+              >#f1f2f3</mark
+            >;
+            <br />
+            <br />
+            &nbsp;&nbsp;<mark class="property">--notiffy-warning</mark>:
+            <mark style="background-color: #eb8e14">#eb8e14</mark>;
+            <br />
+            &nbsp;&nbsp;<mark class="property">--notiffy-warning-progress</mark
+            >: <mark style="background-color: #d77a00">#d77a00</mark>;
+            <br />
+            <br />
+            &nbsp;&nbsp;<mark class="property">--notiffy-error</mark>:
+            <mark style="background-color: #bd362f">#bd362f</mark>;
+            <br />
+            &nbsp;&nbsp;<mark class="property">--notiffy-error-progress</mark>:
+            <mark style="background-color: #a9221b">#a9221b</mark>;
+            <br />
+            <br />
+            &nbsp;&nbsp;<mark class="property">--notiffy-success</mark>:
+            <mark style="background-color: #3d8f3d">#3d8f3d</mark>;
+            <br />
+            &nbsp;&nbsp;<mark class="property">--notiffy-success-progress</mark
+            >: <mark style="background-color: #297b29">#297b29</mark>;
+            <br />
+            <br />
+            &nbsp;&nbsp;<mark class="property">--notiffy-info</mark>:
+            <mark style="background-color: #1679ab">#1679ab</mark>;
+            <br />
+            &nbsp;&nbsp;<mark class="property">--notiffy-info-progress</mark>:
+            <mark style="background-color: #026597">#026597</mark>;
+            <br />
+            <br />
+            &nbsp;&nbsp;<mark class="property">--notiffy-overlay</mark>: RGBA(0,
+            0, 0, 0.4);
+            <br />
+            }
+          </div>
+        </code>
+        <table>
+          <thead>
+            <tr>
+              <th width="50%">CSS Variable Name</th>
+              <th width="50%">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>--notiffy-primary</td>
+              <td>font color. (when not filled)</td>
+            </tr>
+            <tr>
+              <td>--notiffy-secondary</td>
+              <td>font color. (when filled)</td>
+            </tr>
+            <tr>
+              <td>--notiffy-warning</td>
+              <td>main color for warning.</td>
+            </tr>
+            <tr>
+              <td>--notiffy-warning-progress</td>
+              <td>progress bar color for warning.</td>
+            </tr>
+            <tr>
+              <td>--notiffy-error</td>
+              <td>main color for error.</td>
+            </tr>
+            <tr>
+              <td>--notiffy-error-progress</td>
+              <td>progress bar color for error.</td>
+            </tr>
+            <tr>
+              <td>--notiffy-success</td>
+              <td>main color for success.</td>
+            </tr>
+            <tr>
+              <td>--notiffy-success-progress</td>
+              <td>progress bar color for success.</td>
+            </tr>
+            <tr>
+              <td>--notiffy-info</td>
+              <td>main color for info.</td>
+            </tr>
+            <tr>
+              <td>--notiffy-info-progress</td>
+              <td>progress bar color for info.</td>
+            </tr>
+            <tr>
+              <td>--notiffy-overlay</td>
+              <td>layer color for Alert.</td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <br />
+        <p>And also apply CSS using element ID.</p>
+        <p>
+          Verify the element property values using browser's developer tools and
+          test it to prevent layout issues.
+        </p>
+        <p>
+          Please provide feedback on desired properties for possible inclusion
+          in the next update.
+        </p>
+        <p>(below are the examle using element ID)</p>
+        <code class="stick">
+          <div>
+            <mark class="function">#notiffy-toast > div</mark> {
+            <br />
+            &nbsp;&nbsp;<mark class="property">border-radius</mark>:
+            <mark class="number">0</mark>;
+            <br />
+            &nbsp;&nbsp;<mark class="property">box-shadow</mark>:
+            <mark class="string">none</mark>;
+            <br />
+            &nbsp;&nbsp;<mark class="property">font-size</mark>:
+            <mark class="string">14px</mark>;
+            <br />
+            &nbsp;&nbsp;<mark class="property">font-family</mark>:
+            <mark class="string">Noto Sans, sans-serif</mark>;
+            <br />
+            }
+          </div>
+        </code>
+      </section>
+      <section id="support">
+        <div>
+          <span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#e8eaed"
+            >
+              <path
+                d="M480-120q-17 0-28.5-11.5T440-160q0-17 11.5-28.5T480-200h280v-284q0-117-81.5-198.5T480-764q-117 0-198.5 81.5T200-484v204q0 17-11.5 28.5T160-240q-33 0-56.5-23.5T80-320v-80q0-21 10.5-39.5T120-469l3-53q8-68 39.5-126t79-101q47.5-43 109-67T480-840q68 0 129 24t109 66.5Q766-707 797-649t40 126l3 52q19 9 29.5 27t10.5 38v92q0 20-10.5 38T840-249v49q0 33-23.5 56.5T760-120H480ZM360-400q-17 0-28.5-11.5T320-440q0-17 11.5-28.5T360-480q17 0 28.5 11.5T400-440q0 17-11.5 28.5T360-400Zm240 0q-17 0-28.5-11.5T560-440q0-17 11.5-28.5T600-480q17 0 28.5 11.5T640-440q0 17-11.5 28.5T600-400Zm-359-62q-7-106 64-182t177-76q89 0 156.5 56.5T720-519q-91-1-167.5-49T435-698q-16 80-67.5 142.5T241-462Z"
+              />
+            </svg>
+            <h1>Support</h1>
+          </span>
+        </div>
+        <p>Bugs or improvement requests on GitHub issues menu.</p>
+        <p>They will be addressed promptly as soon as possible.</p>
+        <br />
+        <ol>
+          <li>
+            <h5>
+              <a href="CHANGELOG.md" download="CHANGELOG.md" target="_blank"
+                >Download CHANGELOG</a
+              >
+            </h5>
+          </li>
+          <li>
+            <h5>
+              <a href="mailto:devcheeze@icloud.com" target="_blank"
+                >E-mail Send For Feedback</a
+              >
+            </h5>
+          </li>
+          <li>
+            <h5>
+              <a
+                href="https://github.com/devcheeze/notiffy/issues"
+                target="_blank"
+                >Visit Github Issues Page</a
+              >
+            </h5>
+          </li>
+          <li>
+            <h5>
+              <a href="https://github.com/devcheeze" target="_blank"
+                >Visit Creator Github</a
+              >
+            </h5>
+          </li>
+        </ol>
+      </section>
+    </main>
   </body>
+  <script type="text/javascript">
+    const NotiffyItems = {
+      Installation: {
+        NPM: 'npm install notiffy',
+        YARN: 'yarn add notiffy',
+        CDN: `// latest version...
+<script src="https://cdn.jsdelivr.net/npm/notiffy/dist/index.js"><\/script>
+
+// if wanting specific version...
+<script src="https://cdn.jsdelivr.net/npm/notiffy@1.0.0/dist/index.js"><\/script>`,
+      },
+      QuickUsage: {
+        Import: `import { Toast, Slip, Mole, Alert } from "notiffy";
+
+// if using CommonJS..
+const { Toast, Slip, Mole, Alert } = require("notiffy");
+
+// if grab the CDN..
+const { Toast, Slip, Mole, Alert } = notiffy;`,
+        Usage: `Toast.warning({
+  text: "hello toast."
+});`,
+      },
+      Examples: {
+        Toast: {
+          Default: {
+            Warning: `Toast.warning({
+  text: "hello warning toast."
+});`,
+            Error: `Toast.error({
+  text: "hello error toast."
+});`,
+            Success: `Toast.success({
+  text: "hello success toast."
+});`,
+            Info: `Toast.info({
+  text: "hello info toast."
+});`,
+          },
+          Timeout: `Toast.warning({
+  text: "hello toast.",
+  timeout: 20000
+});`,
+          Icon: `Toast.warning({
+  text: "hello toast.",
+  icon: false
+});`,
+          Fill: `Toast.warning({
+  text: "hello toast.",
+  fill: false
+});`,
+        },
+        Slip: {
+          Default: {
+            Warning: `Slip.warning({
+  text: "hello warning slip."
+});`,
+            Error: `Slip.error({
+  text: "hello error slip."
+});`,
+            Success: `Slip.success({
+  text: "hello success slip."
+});`,
+            Info: `Slip.info({
+  text: "hello info slip."
+});`,
+          },
+          Timeout: `Slip.warning({
+  text: "hello slip.",
+  timeout: 20000
+});`,
+          Icon: `Slip.warning({
+  text: "hello slip.",
+  icon: false
+});`,
+          Fill: `Slip.warning({
+  text: "hello slip.",
+  fill: false
+});`,
+          Direction: `Slip.warning({
+  text: "hello slip.",
+  direction: "left"
+});`,
+        },
+        Mole: {
+          Default: {
+            Warning: `Mole.warning({
+  text: "hello warning mole."
+});`,
+            Error: `Mole.error({
+  text: "hello error mole."
+});`,
+            Success: `Mole.success({
+  text: "hello success mole."
+});`,
+            Info: `Mole.info({
+  text: "hello info mole."
+});`,
+          },
+          Timeout: `Mole.warning({
+  text: "hello mole.",
+  timeout: 20000
+});`,
+          Icon: `Mole.warning({
+  text: "hello mole.",
+  icon: false
+});`,
+          Fill: `Mole.warning({
+  text: "hello mole.",
+  fill: false
+});`,
+          Direction: `Mole.warning({
+  text: "hello mole.",
+  direction: "left"
+});`,
+        },
+        Alert: {
+          Default: {
+            Warning: `Alert.warning({
+  text: "hello warning alert."
+});`,
+            Error: `Alert.error({
+  text: "hello error alert."
+});`,
+            Success: `Alert.success({
+  text: "hello success alert."
+});`,
+            Info: `Alert.info({
+  text: "hello info alert."
+});`,
+          },
+          Title: `Alert.warning({
+  text: "hello alert.",
+  title: "this is title."
+});`,
+          Timeout: `Alert.warning({
+  text: "hello alert.",
+  timeout: 20000
+});`,
+          Icon: `Alert.warning({
+  text: "hello alert.",
+  icon: false
+});`,
+          Fill: `Alert.warning({
+  text: "hello alert.",
+  fill: false
+});`,
+          Overlay: `Alert.warning({
+  text: "hello alert.",
+  overlay: "rgba(0, 0, 0, 0.8)"
+});`,
+        },
+      },
+      Event: {
+        Toast: {
+          Callback: `Toast.warning({
+  id: 1,
+  text: "hello toast."
+}).then((response) => {
+  console.log("when clicked", response);
+}).catch((error) => {
+  console.log(error);
+});`,
+        },
+        Slip: {
+          Callback: `Slip.warning({
+  id: 1,
+  text: "hello slip."
+}).then((response) => {
+  console.log("when clicked", response);
+}).catch((error) => {
+  console.log(error);
+});`,
+        },
+        Mole: {
+          Callback: `Mole.warning({
+  id: 1,
+  text: "hello mole."
+}).then((response) => {
+  console.log("when clicked", response);
+}).catch((error) => {
+  console.log(error);
+});`,
+        },
+        Alert: {
+          Callback: `Alert.warning({
+  id: 1,
+  text: "hello alert."
+}).then((response) => {
+  console.log("when clicked", response);
+}).catch((error) => {
+  console.log(error);
+});`,
+        },
+      },
+    };
+
+    function CodeCopy(element, text) {
+      navigator.clipboard
+        .writeText(text)
+        .then(() => CodeCopySuccess(element))
+        .catch(() => CodeCopyFallback(element, text));
+    }
+
+    function CodeCopySuccess(element) {
+      if (element) {
+        element.disabled = true;
+        const p = element.querySelector('p');
+        if (p) {
+          p.innerText = 'COPIED';
+          setTimeout(() => {
+            element.disabled = false;
+            p.innerText = 'COPY';
+          }, 1000);
+        }
+      }
+    }
+
+    function CodeCopyFallback(element, text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      try {
+        const copy = document.execCommand('copy');
+        if (copy) {
+          handleSuccess(element);
+        } else {
+          console.error('Fallback: Copying code command was unsuccessful');
+        }
+      } catch (error) {
+        console.error('Fallback: unable to copy', error);
+      }
+
+      document.body.removeChild(textarea);
+    }
+
+    function CodeExecute(element, lib, text) {
+      const { Toast, Slip, Mole, Alert } = notiffy;
+      const execute = new Function(lib, text);
+      try {
+        switch (lib) {
+          case 'Toast':
+            execute(Toast);
+            break;
+          case 'Slip':
+            execute(Slip);
+            break;
+          case 'Mole':
+            execute(Mole);
+            break;
+          case 'Alert':
+            execute(Alert);
+            break;
+        }
+        element.disabled = true;
+        setTimeout(() => {
+          element.disabled = false;
+        }, 1000);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    function SelectSort(element, val) {
+      const parent = element.parentElement.parentElement;
+      const target = parent.querySelectorAll('ul > li');
+      for (i = 0; i < target.length; i++) {
+        if (val === i.toString()) {
+          target[i].style.display = 'inline-flex';
+        } else {
+          target[i].style.display = 'none';
+        }
+      }
+    }
+
+    function onClickMenu(id) {
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+        });
+      }
+    }
+  </script>
 </html>
