@@ -110,7 +110,7 @@ Toast.warning({ text: 'hello toast.' });
 <br />
 <br />
 
-# 💡How To Apply
+# 💡 How To Apply
 
 - HTML example using CDN.
 
@@ -137,7 +137,7 @@ Toast.warning({ text: 'hello toast.' });
 
 <br />
 
-- React example using an imported module. (for reference)
+- Functional React example using an imported module. (for reference)
 
 ```typescript
 import { Toast } from 'notiffy';
