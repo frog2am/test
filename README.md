@@ -145,7 +145,7 @@ Toast.warning({ text: 'hello toast.' });
 
 <br />
 
-- Functional React apply example using an imported module. (for reference)
+- Functional React apply example using an imported module. (basic)
 
 ```javascript
 // example.ts
@@ -168,7 +168,7 @@ const Example = (): JSX.Element => {
 
 <br />
 
-- Vue.js apply example using an imported module. (for reference)
+- Vue.js apply example using an imported module. (basic)
 
 ```vue
 <template>
@@ -178,6 +178,7 @@ const Example = (): JSX.Element => {
 </template>
 
 <script lang="ts">
+// example.vue
 import { defineComponent } from 'vue';
 import { Toast } from 'notiffy'; // import the module...
 
@@ -202,7 +203,7 @@ export default defineComponent({
 <br />
 <br />
 
-# 🔗 More Infomation
+# 🔗 Reference & More Infomation
 
 - [Click Here](https://devcheeze.github.io/notiffy/) for document and examples.
 - [Click Here](mailto:devcheeze@icloud.com) to send feedback to the creator by email.
