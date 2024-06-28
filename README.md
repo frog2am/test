@@ -77,10 +77,10 @@ $ yarn add notiffy
   <br />
 
 ```html
-<!-- latest version... -->
+<!-- latest version -->
 <script src="https://cdn.jsdelivr.net/npm/notiffy/dist/index.js"></script>
 
-<!-- if wanting specific version... -->
+<!-- if wanting specific version -->
 <script src="https://cdn.jsdelivr.net/npm/notiffy@1.0.0/dist/index.js"></script>
 ```
 
@@ -94,11 +94,10 @@ $ yarn add notiffy
 
 ```javascript
 import { Toast, Slip, Mole, Alert } from 'notiffy';
-
-// if using CommonJS...
+// or
 const { Toast, Slip, Mole, Alert } = require('notiffy');
 
-// if grab the CDN...
+// variable declaration
 const { Toast, Slip, Mole, Alert } = notiffy;
 ```
 
@@ -126,7 +125,6 @@ Toast.warning({ text: 'hello toast.' });
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/notiffy/dist/index.js"></script>
-    <title>Example</title>
   </head>
   <body>
     <div>
@@ -134,10 +132,12 @@ Toast.warning({ text: 'hello toast.' });
     </div>
   </body>
   <script>
-    const { Toast } = notiffy; // global variables declaration...
+    const { Toast } = notiffy; // global variables declaration
 
     document.getElementById('button').addEventListener('click', function () {
-      Toast.warning({ text: 'hello warning toast.' });
+      Toast.warning({
+        text: 'hello warning toast.',
+      });
     });
   </script>
 </html>
@@ -149,7 +149,7 @@ Toast.warning({ text: 'hello toast.' });
 
 ```javascript
 // example.ts
-import { Toast } from 'notiffy'; // import the module...
+import { Toast } from 'notiffy'; // import the module
 
 const Example = (): JSX.Element => {
   const onClickButton = (): void => {
@@ -181,7 +181,7 @@ const Example = (): JSX.Element => {
 <script lang="ts">
 // example.vue
 import { defineComponent } from 'vue';
-import { Toast } from 'notiffy'; // import the module...
+import { Toast } from 'notiffy'; // import the module
 
 export default defineComponent({
   name: 'ExampleView',
