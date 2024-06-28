@@ -8,7 +8,8 @@
 <br />
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevcheeze%2Fnotiffy&count_bg=%231679AB&title_bg=%23555555&icon=github.svg&icon_color=%23FFFFFF&title=Hits&edge_flat=false)](https://github.com/devcheeze/notiffy) [![Version](https://img.shields.io/npm/v/notiffy.svg?style=flat&label=Version)]() [![NPM Downloads](https://img.shields.io/npm/dt/notiffy.svg?style=flat&label=NPM Download)]() [![Last Commit](https://img.shields.io/github/last-commit/devcheeze/notiffy.svg?style=flat&label=Last Commit)]() [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat&label=License)]()
-[![NPM](https://nodei.co/npm/notiffy.png?downloads=true)](https://www.npmjs.com/package/notiffy)
+[![NPM](https://nodei.co/npm/idm-ipex-ui.png?downloads=true)](https://www.npmjs.com/package/notiffy)
+[![Yarn](https://nodei.co/npm/idm-ipex-ui.png?downloads=true&install=true&compact=true)](https://www.npmjs.com/package/notiffy)
 
 </div>
 
