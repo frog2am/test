@@ -73,7 +73,7 @@ $ yarn add notiffy
 
 <br />
 
-- When grab from CDN. (latest version)
+- When grab from CDN.
   <br />
 
 ```html
