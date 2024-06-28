@@ -98,7 +98,7 @@ import { Toast, Slip, Mole, Alert } from 'notiffy';
 // if using CommonJS...
 const { Toast, Slip, Mole, Alert } = require('notiffy');
 
-// If grab the CDN...
+// if grab the CDN...
 const { Toast, Slip, Mole, Alert } = notiffy;
 ```
 
@@ -116,7 +116,7 @@ Toast.warning({ text: 'hello toast.' });
 
 # 💡 How To Apply
 
-- HTML example using CDN.
+- HTML apply example using CDN.
 
 ```html
 <!-- example.html -->
@@ -132,8 +132,9 @@ Toast.warning({ text: 'hello toast.' });
     <button id="button">Click here</button>
   </body>
   <script>
+    const { Toast } = notiffy;
+
     document.getElementById('button').addEventListener('click', function () {
-      const { Toast } = notiffy;
       Toast.warning({ text: 'hello warning toast.' });
     });
   </script>
@@ -142,7 +143,7 @@ Toast.warning({ text: 'hello toast.' });
 
 <br />
 
-- Functional React example using an imported module. (for reference)
+- Functional React apply example using an imported module. (for reference)
 
 ```javascript
 // example.ts
