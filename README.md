@@ -132,7 +132,7 @@ Toast.warning({ text: 'hello toast.' });
     <button id="button">Click here</button>
   </body>
   <script>
-    const { Toast } = notiffy;
+    const { Toast } = notiffy; // global variables declaration...
 
     document.getElementById('button').addEventListener('click', function () {
       Toast.warning({ text: 'hello warning toast.' });
@@ -147,7 +147,7 @@ Toast.warning({ text: 'hello toast.' });
 
 ```javascript
 // example.ts
-import { Toast } from 'notiffy';
+import { Toast } from 'notiffy'; // import the module...
 
 export const Example = (): JSX.Element => {
   const onClickButton = (): void => {
