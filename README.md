@@ -7,8 +7,8 @@
 <br />
 <br />
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevcheeze%2Fnotiffy&count_bg=%231679AB&title_bg=%23555555&icon=github.svg&icon_color=%23FFFFFF&title=Hits&edge_flat=false)](https://github.com/frog2am/test) ![NPM Downloads](https://img.shields.io/npm/dt/swiper.svg?style=flat&label=NPM Download) ![Last Commit](https://img.shields.io/github/last-commit/frog2am/test.svg?style=flat&label=Last Commit) ![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat&label=License)
-[![NPM](https://nodei.co/npm/swiper.png?downloads=true)](https://www.npmjs.com/package/notiffy)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevcheeze%2Fnotiffy&count_bg=%231679AB&title_bg=%23555555&icon=github.svg&icon_color=%23FFFFFF&title=Hits&edge_flat=false)](https://github.com/devcheeze/notiffy) [![Version](https://img.shields.io/npm/v/notiffy.svg?style=flat&label=Version)]() [![NPM Downloads](https://img.shields.io/npm/dt/notiffy.svg?style=flat&label=NPM Download)]() [![Last Commit](https://img.shields.io/github/last-commit/devcheeze/notiffy.svg?style=flat&label=Last Commit)]() [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat&label=License)]()
+[![NPM](https://nodei.co/npm/notiffy.png?downloads=true)](https://www.npmjs.com/package/notiffy)
 
 </div>
 
@@ -129,7 +129,9 @@ Toast.warning({ text: 'hello toast.' });
     <title>Example</title>
   </head>
   <body>
-    <button id="button">Click here</button>
+    <div>
+      <button id="button">Click here</button>
+    </div>
   </body>
   <script>
     const { Toast } = notiffy; // global variables declaration...
@@ -149,9 +151,11 @@ Toast.warning({ text: 'hello toast.' });
 // example.ts
 import { Toast } from 'notiffy'; // import the module...
 
-export const Example = (): JSX.Element => {
+const Example = (): JSX.Element => {
   const onClickButton = (): void => {
-    Toast.waring({ text: 'hello warning toast.' });
+    Toast.warning({
+      text: 'hello warning toast.',
+    });
   };
 
   return (
@@ -160,6 +164,39 @@ export const Example = (): JSX.Element => {
     </div>
   );
 };
+```
+
+<br />
+
+- Vue.js apply example using an imported module. (for reference)
+
+```vue
+<template>
+  <div>
+    <button @click="onClickButton">Click here</button>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { Toast } from 'notiffy'; // import the module...
+
+export default defineComponent({
+  name: 'ExampleView',
+  setup() {
+    const onClickButton = (): void => {
+      Toast.warning({
+        text: 'hello warning toast.',
+      });
+    };
+    return {
+      onClickButton,
+    };
+  },
+});
+</script>
+
+<style scoped></style>
 ```
 
 <br />
