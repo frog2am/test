@@ -2,209 +2,266 @@
 
 <br/>
 
-<img src="logo.png" width="520px" />
+<img src="logo.png" width="560px" />
 
 <br />
 <br />
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fdevcheeze%2Fnotiffy&count_bg=%231679AB&title_bg=%23555555&icon=github.svg&icon_color=%23FFFFFF&title=Hits&edge_flat=false)](https://github.com/devcheeze/notiffy) [![Version](https://img.shields.io/npm/v/notiffy.svg?style=flat&label=Version)]() [![NPM Downloads](https://img.shields.io/npm/dt/notiffy.svg?style=flat&label=NPM Download)]() [![Last Commit](https://img.shields.io/github/last-commit/devcheeze/notiffy.svg?style=flat&label=Last Commit)]() [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat&label=License)]()
-[![NPM](https://nodei.co/npm/notiffy.png?compact=true)](https://nodei.co/npm/notiffy/)
+[![Latest Version](https://img.shields.io/npm/v/notiffy.svg?style=social&label=Latest Version)]() [![Bundle Size](https://img.shields.io/bundlephobia/min/notiffy.svg?style=social&label=Bundle Size)]() [![GitHub Issues](https://img.shields.io/github/issues/devcheeze/notiffy.svg?style=social&label=GitHub Issues)]() [![Supported Node](https://img.shields.io/node/v/notiffy.svg?style=social&label=Supported Node.js)]()
 
 </div>
 
 <br />
 
-# 👋 Overview
+## Synopsis
 
-"Notiffy" is a TypeScript-based notification message UI.
+indicatoring module is a spinner for response waiting.
 <br />
-Modern design created using pure CSS makes it accessible for everyone to learn and apply.
+it is simple, easy to use, and customizable through set some arguments.
 <br />
-Customization is possible through provided properties and supports vanilla JavaScript as well as TypeScript.
-<br/>
-Supports all frameworks and platforms that use JavaScript, such as React, Vue.js, and JSP.
+circular indicators can be added or removed at want locations.
 <br />
-Promises regular debugging and continuous updates.
+also, it has various uses beyond waiting for data responses.
 <br />
-Below are the core features provided by default.
+provides both package installation and a CDN.
 <br />
-
-- <b>Platform Independent</b>
-- <b>Four Types Available</b>
-- <b>Varient Events</b>
-- <b>Most browsers Supported</b>
-- <b>Automatically Responsive Size</b>
-- <b>MIT License</b>
-
-<br />
-<br />
-
-# ⚠️ Usage Cautions
-
-Global CSS may affect DIV, SVG and Path tags.
-<br />
-TypeScript is optional with minimal dependencies required for module building.
-<br />
-In case of using Node.js, it is advisable to opt for version 18.12.0 or newer. (if possible)
-
-<br />
-<br />
-
-# 📥 Installation
-
-Select one of the following methods to add "Notiffy" to your project.
-<br />
-
-- When using NPM.
-  <br />
-
-```shell
-$ npm install notiffy
-```
-
-<br />
-
-- When using YARN.
-  <br />
-
-```shell
-$ yarn add notiffy
-```
-
-<br />
-
-- When grab from CDN.
-  <br />
 
 ```html
 <!-- latest version -->
-<script src="https://cdn.jsdelivr.net/npm/notiffy/dist/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/indicatoring/dist/index.js"></script>
 
-<!-- if wanting specific version -->
-<script src="https://cdn.jsdelivr.net/npm/notiffy@1.0.0/dist/index.js"></script>
+<!-- X.X.X version -->
+<script src="https://cdn.jsdelivr.net/npm/indicatoring@1.0.0/dist/index.js"></script>
 ```
 
+<br/>
+<br/>
+
+## Preview
+
+![Preivew](preview.gif)
+
+<br/>
+<br/>
+
+## Cautions
+
+use Indicatoring.open() to begin and Indicatoring.close() to finish.
+<br />
+to prevent flickering, the Indicator does not run if Indicatoring.close() is called within 300 milliseconds of Indicatoring.open().
+<br />
+if the limit arguments is used, Indicatoring.close() can be omitted.
+
 <br />
 <br />
 
-# ⚡ Quick Start
+## Examples
 
-- Declare module imports.
-  <br />
+available in all JavaScript libraries and frameworks
+
+<details>
+<summary>
+Common (Importing Module)
+</summary>
 
 ```javascript
-import { Toast, Slip, Mole, Alert } from 'notiffy';
+import Indicatoring from 'indicatoring';
 // or
-const { Toast, Slip, Mole, Alert } = require('notiffy');
-
-// variable declaration
-const { Toast, Slip, Mole, Alert } = notiffy;
+const Indicatoring = require('indicatoring');
 ```
 
-<br />
+</details>
 
-- When using "Toast" example.
-  <br />
-
-```javascript
-Toast.warning({ text: 'hello toast.' });
-```
-
-<br />
-<br />
-
-# 💡 How To Apply
-
-- HTML apply example using CDN.
+<details>
+<summary>
+Vanilla JS
+</summary>
 
 ```html
-<!-- example.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/notiffy/dist/index.js"></script>
+    <script src="http://132.226.23.243:9900/indicatoring/dist/index.js"></script>
   </head>
   <body>
     <div>
-      <button id="button">Click here</button>
+      <button onclick="handleRequest()">Click here</button>
     </div>
   </body>
   <script>
-    const { Toast } = notiffy; // global variables declaration
-
-    document.getElementById('button').addEventListener('click', function () {
-      Toast.warning({
-        text: 'hello warning toast.',
-      });
-    });
+    async function handleRequest() {
+      Indicatoring.open(); // run while waiting for a response
+      fetch('https://api.github.com/users/devcheeze')
+        .then((response) => {
+          // process response data...
+        })
+        .catch((error) => {
+          // process response error...
+        })
+        .finally(() => {
+          Indicatoring.close(); // required if no limit arguments.
+        });
+    }
   </script>
 </html>
 ```
 
-<br />
+</details>
 
-- Functional React apply example using an imported module. (basic)
+<details>
+<summary>
+React
+</summary>
 
 ```javascript
-// example.ts
-import { Toast } from 'notiffy'; // import the module
+import React from 'react';
+import Indicatoring from 'indicatoring';
 
-const Example = (): JSX.Element => {
-  const onClickButton = (): void => {
-    Toast.warning({
-      text: 'hello warning toast.',
-    });
+class App extends React.Component {
+  handleRequest = async () => {
+    Indicatoring.open(); // run while waiting for a response
+    fetch('https://api.github.com/repos/devcheeze/indicatoring')
+      .then((response) => {
+        // process response data...
+      })
+      .catch((error) => {
+        // process response error...
+      })
+      .finally(() => {
+        Indicatoring.close(); // required if no limit.
+      });
   };
 
-  return (
-    <div>
-      <button onClick={onClickButton}>Click here</button>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleRequest}>Click here</button>
+      </div>
+    );
+  }
+}
+
+export default App;
 ```
 
-<br />
+</details>
 
-- Vue.js apply example using an imported module. (basic)
+<details>
+<summary>
+Vue.js
+</summary>
 
-```vue
-<!-- example.vue -->
+```javascript
 <template>
   <div>
-    <button @click="onClickButton">Click here</button>
+    <button @click="handleRequest">Click here</button>
   </div>
 </template>
 
-<script lang="ts">
-// example.vue
-import { defineComponent } from 'vue';
-import { Toast } from 'notiffy'; // import the module
-
-export default defineComponent({
-  name: 'ExampleView',
-  setup() {
-    const onClickButton = (): void => {
-      Toast.warning({
-        text: 'hello warning toast.',
-      });
-    };
-    return {
-      onClickButton,
-    };
+<script>
+export default {
+  methods: {
+    async handleRequest() {
+      Indicatoring.open(); // run while waiting for a response
+      fetch('https://api.github.com/repos/devcheeze/indicatoring')
+        .then((response) => {
+          // process response data...
+        })
+        .catch((error) => {
+          // process response error...
+        })
+        .finally(() => {
+          Indicatoring.close(); // required if no limit.
+        });
+    },
   },
-});
+};
 </script>
 
-<style scoped></style>
+<style></style>
 ```
 
+</details>
+
+<details>
+<summary>
+Angular
+</summary>
+
+```javascript
+import { Component } from '@angular/core';
+import Indicatoring from 'indicatoring';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <div>
+      <button (click)="handleRequest()">Click here</button>
+    </div>
+  `,
+})
+export class AppComponent {
+  handleRequest() {
+    Indicatoring.open(); // run while waiting for a response
+    fetch('https://api.github.com/repos/devcheeze/indicatoring')
+      .then((response) => {
+        // process response data...
+      })
+      .catch((error) => {
+        // process response error...
+      })
+      .finally(() => {
+        Indicatoring.close(); // required if no limit.
+      });
+  }
+}
+```
+
+</details>
+
 <br />
 <br />
 
-# 🔗 Reference & More Infomation
+## Arguments
 
-- [Click Here](https://devcheeze.github.io/notiffy/) for document and examples.
-- [Click Here](mailto:devcheeze@icloud.com) to send feedback to the creator by email.
+| Argument | Object Name | Key Name | Type                           | Default Value        |
+| -------- | ----------- | -------- | ------------------------------ | -------------------- |
+| limit    | -           | -        | Number                         | 0                    |
+| config   | background  | color    | String                         | "rgba(0, 0, 0, 0.6)" |
+|          |             | blur     | Boolean                        | false                |
+|          | circle      | color    | "large" or "medium" or "small" | "medium"             |
+|          |             | size     | String                         | "#ffffff"            |
+
+all arguments are optional and apply arguments as shown below.
+<br />
+arguments will continue to be added.
+
+```javascript
+Indicatoring.open(
+  4000, // indicating duration of 4 seconds.
+  {
+    background: {
+      color: 'rgba(20, 20, 20, 0.4)', // change background color.
+      blur: true, // background blur or not
+    },
+    circle: {
+      color: '#f1f2f3', // circular icon color
+      size: 'large', // circular icon size
+    },
+  }
+);
+```
+
+<br/>
+<br/>
+
+## ETC
+
+- [Github Repository](https://devcheeze.github.io/indicatoring)
+- [NPM Repository](https://www.npmjs.com/package/indicatoring)
+- [YARN Repository](https://yarnpkg.com/package?name=indicatoring)
+
+- [Creator Github Repository](https://github.com/devcheeze)
+- [Send Feedback Email To Creator](mailto:devcheeze@icloud.com)
